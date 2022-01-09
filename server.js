@@ -47,7 +47,7 @@ app.get("/countries/:countryCode", (req, res) => {
   const { countryCode } = req.params;
   console.log("CCode ==> ", countryCode);
   axios
-    .get(`https://covid19.mathdro.id/api/counies/${countryCode}`)
+    .get(`https://covid19.mathdro.id/api/countries/${countryCode}`)
     .then((response) => {
       (response.data.responseStatus = "success"), res.send(response.data);
     })
