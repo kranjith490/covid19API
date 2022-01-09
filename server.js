@@ -3,7 +3,7 @@ const axios = require("axios");
 const { response } = require("express");
 const { json } = require("body-parser");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
   axios
@@ -65,5 +65,5 @@ app.get("/countries/:countryCode", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`app listening at http://localhost:${port}`);
+  console.log(`app listening at http://url:${port}`);
 });
