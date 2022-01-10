@@ -5,7 +5,7 @@ const { json } = require("body-parser");
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.get("/", (req, res) => {
+app.get("/api/countries", (req, res) => {
   axios
     .get("https://covid19.mathdro.id/api/countries")
     .then((response) => {
@@ -24,9 +24,9 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/api", (req, res) => {
+app.get("/api/global", (req, res) => {
   axios
-    .get("https://covid19.mathdro.id/api")
+    .get("https://covid19.mathdro.id/api/")
     .then((response) => {
       (response.data.responseStatus = "success"), res.send(response.data);
     })
@@ -43,7 +43,7 @@ app.get("/api", (req, res) => {
     });
 });
 
-app.get("/countries/:countryCode", (req, res) => {
+app.get("/api/countries/:countryCode", (req, res) => {
   const { countryCode } = req.params;
   axios
     .get(`https://covid19.mathdro.id/api/countries/${countryCode}`)
