@@ -1,9 +1,14 @@
 const express = require("express");
 const axios = require("axios");
-const { response } = require("express");
-const { json } = require("body-parser");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 8000;
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.get("/api/countries", (req, res) => {
   axios
